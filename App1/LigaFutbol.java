@@ -1,9 +1,37 @@
 package App1;
 //@author fsancheztemprano
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class LigaFutbol {
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final LigaFutbol other = (LigaFutbol) obj;
+        if (!Arrays.deepEquals(this.equipos, other.equipos)) {
+            return false;
+        }
+        if (!Arrays.deepEquals(this.tabla, other.tabla)) {
+            return false;
+        }
+        return true;
+    }
 
     public String[] equipos = {"Alaves", "Athletic", "Atletico de Madrid", "Barcelona", "Betis", "Celta", "Eibar", "Español", "Getafe", "Girona", "Huesca", "Leganes", "Levante", "Rayo", "Real Madrid", "Real Sociedad", "Sevilla", "Valencia", "Valladolid", "Villareal"};
     public int[][] tabla;

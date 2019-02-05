@@ -1,37 +1,9 @@
 package App1;
 //@author fsancheztemprano
 
-import java.util.Arrays;
 import java.util.Random;
 
 public class LigaFutbol {
-
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final LigaFutbol other = (LigaFutbol) obj;
-        if (!Arrays.deepEquals(this.equipos, other.equipos)) {
-            return false;
-        }
-        if (!Arrays.deepEquals(this.tabla, other.tabla)) {
-            return false;
-        }
-        return true;
-    }
 
     public String[] equipos = {"Alaves", "Athletic", "Atletico de Madrid", "Barcelona", "Betis", "Celta", "Eibar", "Español", "Getafe", "Girona", "Huesca", "Leganes", "Levante", "Rayo", "Real Madrid", "Real Sociedad", "Sevilla", "Valencia", "Valladolid", "Villareal"};
     public int[][] tabla;
@@ -41,13 +13,13 @@ public class LigaFutbol {
 
     public LigaFutbol(int jornadas) {
         this.tabla = new int[equipos.length][jornadas];
-        golesRandom();
+        this.golesRandom();
     }
 
     public LigaFutbol(int jornadas, String[] equipos) {
         this.equipos = equipos;
         this.tabla = new int[equipos.length][jornadas];
-        golesRandom();
+        this.golesRandom();
     }
 
     public void golesRandom() {
@@ -85,13 +57,12 @@ public class LigaFutbol {
         for(int i=0;i<indexReordenados.length;i++){
             indexReordenados[i]=i;
         }
-        
         for(int i =0;i<equipos.length;i++){
-            for(int j = 0;j<equipos.length;j++){
-                if(j==i)continue;
-                if(golesDeEquipo(i)>golesDeEquipo(j)){
-                    indexReordenados[i]=j;
-                    indexReordenados[j]=i;
+            for(int j = i+1,k=i;j<equipos.length-k;j++,k++){
+                
+                if(golesDeEquipo(k)>golesDeEquipo(j)){
+                    indexReordenados[k]=j;
+                    indexReordenados[j]=k;
                 }
             }
         }
@@ -124,5 +95,5 @@ public class LigaFutbol {
         }
         return goles;
     }
-
+     
 }

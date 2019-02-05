@@ -8,8 +8,17 @@ public class App {
         liga.mostrarTabla();
         System.out.println("Totales");
         liga.mostrarTablaTotales();
-        System.out.println("Asc");
-        liga.mostrarTablaTotalAsc();
+        System.out.println("Tabla Ascendente");
+        liga.mostrarTablaOrdenadaTotal();
+        System.out.println("Jornada n2 en orden");
+        liga.mostrarTablaJornadaOrdenada(2);
+        System.out.println("mayor goleado jornada por jornada");
+        liga.mostrarTablaJornadas();
+        System.out.println("jornada top " + liga.getTopJornada());
+        System.out.println("Equipo top en jornada top " + liga.getTopJornadaString());
+        System.out.println("Equipo top total " + liga.getTopEquipoString());
+        System.out.println("Busqueda de goles de un equipo en una jornada:");
+        System.out.printf("El equipo %s en la jornada %d marco %d goles", liga.equipos[3], 18, liga.getGoles(3, 18) );
 
     }
 }

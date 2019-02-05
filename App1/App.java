@@ -18,7 +18,7 @@ public class App {
         System.out.println("Equipo top en jornada top " + liga.getTopJornadaString());
         System.out.println("Equipo top total " + liga.getTopEquipoString());
         System.out.println("Busqueda de goles de un equipo en una jornada:");
-        System.out.printf("El equipo %s en la jornada %d marco %d goles", liga.equipos[3], 18, liga.getGoles(3, 18) );
+        System.out.printf("El equipo %s en la jornada %d marco %d goles", liga.equipos[3], 18, liga.getGoles(3, 18));
 
     }
 }
